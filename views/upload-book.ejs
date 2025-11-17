@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .form-container h1 {
+        margin-bottom: 25px;
+        color: #333;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box; 
+    }
+    .submit-btn {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="form-container">
+    <h1>Upload a New Book</h1>
+    
+    <form action="/api/books" method="POST">
+        <div class="form-group">
+            <label for="title">Book Title</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+        </div>
+        <div class="form-group">
+            <label for="coverUrl">Cover Image URL</label>
+            <input type="text" id="coverUrl" name="coverUrl" placeholder="https://...">
+        </div>
+        <div class="form-group">
+        <label for="downloadUrl">Download URL</label>
+        <input type="text" id="downloadUrl" name="downloadUrl" placeholder="https://.../book.pdf">
+        </div>
+        <button type="submit" class="submit-btn">Upload Book</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

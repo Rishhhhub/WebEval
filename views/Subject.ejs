@@ -1,0 +1,123 @@
+<%- include('partials/header') %>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #343a40; }
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 32px; font-weight: 700; margin-bottom: 30px; color: #212529; }
+
+    /* Tabs */
+    .subject-tabs { display: flex; gap: 20px; margin-bottom: 40px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px; overflow-x: auto; }
+    .tab-item { padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 15px; color: #6c757d; transition: all 0.2s ease; white-space: nowrap; }
+    .tab-item:hover { color: #007bff; background-color: #e7f5ff; }
+    .tab-item.active { background-color: #e7f5ff; color: #007bff; font-weight: 600; }
+
+    .section-title { font-size: 24px; font-weight: 600; margin-bottom: 25px; color: #212529; margin-top: 20px;}
+    
+    /* Grids */
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    
+    /* Cards */
+    .subject-card, .detail-card {
+        background-color: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 20px;
+        display: flex; align-items: center; gap: 15px; font-weight: 500; font-size: 16px; color: #343a40;
+        text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+    }
+    .subject-card:hover, .detail-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-color: #007bff; }
+    .icon { font-size: 20px; color: #6c757d; }
+    
+    /* Animation for switching tabs */
+    .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<div class="container">
+    <h1>Explore Subjects</h1>
+
+    <div class="subject-tabs">
+        <div class="tab-item active" onclick="filterSubjects('all', this)">All Subjects</div>
+        <div class="tab-item" onclick="filterSubjects('math', this)">Mathematics</div>
+        <div class="tab-item" onclick="filterSubjects('science', this)">Science</div>
+        <div class="tab-item" onclick="filterSubjects('tech', this)">Technology</div>
+        <div class="tab-item" onclick="filterSubjects('humanities', this)">Humanities</div>
+    </div>
+
+    <div id="all" class="subject-section fade-in">
+        <h2 class="section-title">All Categories</h2>
+        <div class="grid-container">
+            <a href="/books?search=Mathematics" class="subject-card"><i class="fas fa-calculator icon"></i> Mathematics</a>
+            <a href="/books?search=Science" class="subject-card"><i class="fas fa-flask icon"></i> Science</a>
+            <a href="/books?search=Humanities" class="subject-card"><i class="fas fa-globe icon"></i> Humanities</a>
+            <a href="/books?search=Technology" class="subject-card"><i class="fas fa-laptop-code icon"></i> Technology</a>
+            <a href="/books?search=Arts" class="subject-card"><i class="fas fa-paint-brush icon"></i> Arts</a>
+            <a href="/books?search=Music" class="subject-card"><i class="fas fa-music icon"></i> Music</a>
+        </div>
+    </div>
+
+    <div id="math" class="subject-section fade-in" style="display: none;">
+        <h2 class="section-title">Mathematics Topics</h2>
+        <div class="grid-container">
+            <a href="/books?search=Calculus" class="detail-card"><i class="fas fa-square-root-alt icon"></i> Calculus</a>
+            <a href="/books?search=Statistics" class="detail-card"><i class="fas fa-chart-line icon"></i> Statistics</a>
+            <a href="/books?search=Geometry" class="detail-card"><i class="fas fa-shapes icon"></i> Geometry</a>
+            <a href="/books?search=Algebra" class="detail-card"><i class="fas fa-infinity icon"></i> Algebra</a>
+        </div>
+    </div>
+
+    <div id="science" class="subject-section fade-in" style="display: none;">
+        <h2 class="section-title">Science Topics</h2>
+        <div class="grid-container">
+            <a href="/books?search=Physics" class="detail-card"><i class="fas fa-atom icon"></i> Physics</a>
+            <a href="/books?search=Biology" class="detail-card"><i class="fas fa-dna icon"></i> Biology</a>
+            <a href="/books?search=Chemistry" class="detail-card"><i class="fas fa-vial icon"></i> Chemistry</a>
+            <a href="/books?search=Astronomy" class="detail-card"><i class="fas fa-star icon"></i> Astronomy</a>
+        </div>
+    </div>
+
+    <div id="tech" class="subject-section fade-in" style="display: none;">
+        <h2 class="section-title">Technology Topics</h2>
+        <div class="grid-container">
+            <a href="/books?search=Programming" class="detail-card"><i class="fas fa-code icon"></i> Programming</a>
+            <a href="/books?search=AI" class="detail-card"><i class="fas fa-robot icon"></i> AI & ML</a>
+            <a href="/books?search=Web" class="detail-card"><i class="fas fa-globe icon"></i> Web Dev</a>
+        </div>
+    </div>
+    
+     <div id="humanities" class="subject-section fade-in" style="display: none;">
+        <h2 class="section-title">Humanities Topics</h2>
+        <div class="grid-container">
+            <a href="/books?search=History" class="detail-card"><i class="fas fa-landmark icon"></i> History</a>
+            <a href="/books?search=Philosophy" class="detail-card"><i class="fas fa-book-open icon"></i> Philosophy</a>
+            <a href="/books?search=Literature" class="detail-card"><i class="fas fa-feather-alt icon"></i> Literature</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterSubjects(category, tabElement) {
+        // 1. Hide all sections
+        const sections = document.querySelectorAll('.subject-section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // 2. Remove 'active' class from all tabs
+        const tabs = document.querySelectorAll('.tab-item');
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // 3. Show the selected section
+        const selectedSection = document.getElementById(category);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
+        }
+
+        // 4. Add 'active' class to clicked tab
+        tabElement.classList.add('active');
+    }
+</script>
+
+<%- include('partials/footer') %>

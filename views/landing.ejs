@@ -1,0 +1,254 @@
+<%- include('partials/header') %>
+
+<style>
+    /* ----- Animations ----- */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ----- Hero Section ----- */
+    .hero {
+        /* Soft gradient overlay */
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        padding: 100px 20px 120px; /* More vertical padding */
+    }
+
+    .hero h1 {
+        animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero p {
+        animation: fadeInDown 1s ease-out;
+        font-size: 1.2em; /* Slightly larger */
+        font-weight: 300;
+        color: #e0f2ff;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+
+    .search-bar {
+        animation: fadeInUp 1s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 50px;
+    }
+
+    .search-bar input {
+        border-radius: 50px 0 0 50px;
+        border: none;
+        font-size: 1rem;
+        padding: 15px 25px;
+        width: 350px;
+    }
+
+    .search-bar button {
+        border-radius: 0 50px 50px 0;
+        border: none;
+        background: #fff;
+        color: #007bff;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 15px 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+        background-color: #f4f4f4;
+    }
+
+    /* ----- Resources Section ----- */
+    .resources-section {
+        padding: 80px 20px;
+        background-color: #f9fafb; /* Lighter background */
+    }
+
+    .resources-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+        animation: fadeInUp 1s;
+    }
+
+    .resource-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        animation: fadeInUp 1.2s;
+    }
+    
+    .resource-card {
+        background-color: #fff;
+        border: none;
+        border-radius: 12px; /* Softer radius */
+        /* New, softer shadow */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid #007bff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-card:hover {
+        transform: translateY(-8px);
+        /* Deeper shadow on hover */
+        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.1);
+    }
+
+    .resource-card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .resource-card p {
+        font-size: 1rem;
+    }
+
+    /* ----- How It Works Section ----- */
+    .how-it-works {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .how-it-works h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    /* New 3-column layout */
+    .how-it-works .steps-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+    }
+
+    .how-it-works .step {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .how-it-works .step h3 {
+        font-size: 3.5rem; /* Use icons as the "number" */
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .how-it-works .step h4 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .how-it-works .step p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    /* ----- Footer ----- */
+    footer {
+        background-color: #343a40; /* Darker footer */
+        color: #f8f9fa;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+
+    /* ----- Mobile Responsiveness ----- */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .hero p {
+            font-size: 1rem;
+        }
+        .search-bar {
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+            box-shadow: none;
+        }
+        .search-bar input, .search-bar button {
+            width: 100%;
+            border-radius: 25px;
+        }
+        .search-bar input {
+            margin-bottom: 10px;
+        }
+        
+        .how-it-works .steps-container {
+            flex-direction: column; /* Stack steps vertically on mobile */
+        }
+    }
+</style>
+
+<div class="hero">
+  <h1>One Hub for Free Learning</h1>
+  <p>Access 1000+ free books, online courses, and notes shared by students and educators.</p>
+  <div class="search-bar">
+    <input type="text" placeholder="Search for books, courses, notes...">
+    <button>Explore Resources</button>
+  </div>
+</div>
+
+<div class="resources-section">
+  <h2>Explore Our Resources</h2>
+  <div class="resource-grid">
+    <div class="resource-card">
+      <h3>Free Books Library</h3>
+      <p>Dive into a vast collection of free books covering various subjects.</p>
+    </div>
+    <div class="resource-card">
+      <h3>Curated Online Courses</h3>
+      <p>Access high-quality online courses curated by educators.</p>
+    </div>
+    <div class="resource-card">
+      <h3>Student Notes Sharing</h3>
+      <p>Share and access study notes from fellow students.</p>
+    </div>
+    <div class="resource-card">
+      <h3>Subjects</h3>
+      <p>Browse resources by subject to find exactly what you need.</p>
+    </div>
+  </div>
+</div>
+
+<div class="how-it-works">
+  <h2>How It Works</h2>
+  <div class="steps-container">
+    <div class="step">
+      <h3>🔍</h3>
+      <h4>Search</h4>
+      <p>Find the resources you need quickly and easily.</p>
+    </div>
+    <div class="step">
+      <h3>📚</h3>
+      <h4>Learn</h4>
+      <p>Engage with high-quality learning materials tailored for students.</p>
+    </div>
+    <div class="step">
+      <h3>🚀</h3>
+      <h4>Grow & Share</h4>
+      <p>Expand your knowledge and upload your own notes to help others.</p>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

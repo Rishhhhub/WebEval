@@ -1,0 +1,153 @@
+<%- include('partials/header') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f7f6;
+        color: #333;
+    }
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .description {
+        color: #666;
+        margin-bottom: 20px;
+    }
+    .search-bar {
+        display: flex;
+        margin-bottom: 30px;
+    }
+    .search-bar input {
+        flex-grow: 1;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .filters {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    .filter-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .filter-button {
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+    }
+    .filter-button::after {
+        content: '▼';
+        margin-left: 8px;
+        font-size: 10px;
+    }
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+    }
+    .book-card {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .book-card:hover {
+        transform: translateY(-5px);
+    }
+    .book-cover {
+        width: 120px; 
+        height: 180px; 
+        background-color: #eee;
+        margin: 0 auto 15px auto;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        object-fit: cover;
+        background-image: url('https://via.placeholder.com/120x180?text=Book+Cover'); 
+        background-size: cover;
+        background-position: center;
+    }
+
+    .book-card:nth-child(1) .book-cover { background-image: url('https://rukminim2.flixcart.com/image/704/844/xif0q/book/i/x/3/the-art-of-problem-solving-original-imaguzvpzy5uzyzm.jpeg?q=90&crop=false'); }
+    .book-card:nth-child(2) .book-cover { background-image: url('https://m.media-amazon.com/images/I/61d2ODqa18L._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(3) .book-cover { background-image: url('https://m.media-amazon.com/images/I/511FArZWH8L._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(4) .book-cover { background-image: url('https://media.springernature.com/full/springer-static/cover-hires/book/978-1-137-37526-1'); }
+    .book-card:nth-child(5) .book-cover { background-image: url('https://m.media-amazon.com/images/I/71ZNWpzVrQL._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(6) .book-cover { background-image: url('https://m.media-amazon.com/images/I/41xc7id+qgL._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(7) .book-cover { background-image: url('https://m.media-amazon.com/images/I/610zC1RHCcL._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(8) .book-cover { background-image: url('https://m.media-amazon.com/images/I/81XZAI0Ya4L._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(9) .book-cover { background-image: url('https://m.media-amazon.com/images/I/71qW3p+1u+L._UF1000,1000_QL80_.jpg'); }
+    .book-card:nth-child(10) .book-cover { background-image: url('https://m.media-amazon.com/images/I/51l7ZXCuUAL._UF1000,1000_QL80_.jpg'); }
+
+
+    .book-title {
+        font-weight: bold;
+        font-size: 17px;
+        color: #333;
+        margin-bottom: 5px;
+        line-height: 1.3;
+    }
+    .book-description {
+        font-size: 13px;
+        color: #777;
+        line-height: 1.4;
+        min-height: 40px;
+    }
+</style>
+
+<div class="container">
+    <h1>Free Books Library</h1>
+    <p class="description">Explore a vast collection of free e-books covering various subjects and genres. Find your next great read today!</p>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search by title, author, or keyword">
+    </div>
+
+    <div class="filters">
+        <div class="filter-dropdown">
+            <div class="filter-button">Subject</div>
+        </div>
+        <div class="filter-dropdown">
+            <div class="filter-button">Genre</div>
+        </div>
+        <div class="filter-dropdown">
+            <div class="filter-button">Author</div>
+        </div>
+        <div class="filter-dropdown">
+            <div class="filter-button">Sort by</div>
+        </div>
+        <div class="filter-dropdown">
+        <div class="filter-button">Subject</div>
+    </div>
+    <a href="/upload-book" class="filter-button" 
+       style="text-decoration: none; background-color: #007bff; color: white; margin-left: auto;">
+       Upload Book
+    </a>
+    </div>
+
+    <div class="book-grid">
+        <div class="book-grid"></div>
+    </div>
+</div>
+<script src="js/books.js"></script>
+<%- include('partials/footer') %>

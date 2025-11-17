@@ -1,0 +1,189 @@
+<%- include('partials/header') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f7f6;
+        color: #333;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    p.subtitle {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+    .main-search {
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .main-search input {
+        width: calc(100% - 20px);
+        padding: 12px 15px 12px 45px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+    }
+    .main-search::before {
+        content: '🔍';
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 18px;
+    }
+    .filters {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        align-items: center;
+    }
+    .filter-button {
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    .filter-button:hover {
+        background-color: #e0e0e0;
+    }
+    .filter-button span {
+        margin-right: 5px;
+    }
+    .filter-button::after {
+        content: '▼';
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    .upload-button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        margin-left: auto;
+    }
+    .upload-button:hover {
+        background-color: #0056b3;
+    }
+
+    .notes-section h2 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+    .note-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 20px 0;
+    }
+    .note-item:last-child {
+        border-bottom: none;
+    }
+    .note-details {
+        flex-grow: 1;
+    }
+    .note-details .category {
+        font-size: 13px;
+        color: #007bff;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .note-details .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .note-details .meta {
+        font-size: 14px;
+        color: #777;
+    }
+    .note-image {
+        width: 150px;
+        height: 100px;
+        background-color: #eee;
+        border-radius: 5px;
+        margin-left: 20px;
+        overflow: hidden;
+    }
+    .note-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        border-radius: 5px; 
+    }
+    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .pagination a {
+        text-decoration: none;
+        color: #555;
+        padding: 8px 12px;
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+    .pagination a.active, .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+    .pagination .arrow {
+        font-size: 18px;
+    }
+</style>
+
+<div class="container">
+    <h1>Student Notes Sharing</h1>
+    <p class="subtitle">Access a wealth of study materials shared by peers and educators.</p>
+
+    <div class="main-search">
+        <input type="text" placeholder="Search notes...">
+    </div>
+
+    <div class="filters">
+        <div class="filter-button"><span>Subject</span></div>
+        <div class="filter-button"><span>Topic</span></div>
+        <div class="filter-button"><span>Date</span></div>
+        <a href="/upload-note" class="upload-button" style="text-decoration: none;">Upload Notes</a>    
+    </div>
+
+    <div class="notes-section">
+    </div>
+
+    <div class="pagination">
+        <a href="#" class="arrow">«</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span>...</span>
+        <a href="#">10</a>
+        <a href="#" class="arrow">»</a>
+    </div>
+</div>
+<script src="js/notes.js"></script>
+
+<%- include('partials/footer') %>

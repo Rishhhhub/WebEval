@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    /* ... (Same CSS as the other form) ... */
+    .form-container h1 { margin-bottom: 25px; color: #333; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+    .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    .submit-btn { background-color: #007bff; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600; }
+</style>
+
+<div class="form-container">
+    <h1>Upload a New Course</h1>
+    
+    <form action="/api/courses" method="POST">
+        <div class="form-group">
+            <label for="title">Course Title</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input type="text" id="type" name="type" placeholder="e.g., Free Course" value="Free Course" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" id="image" name="image" placeholder="https://...">
+        </div>
+        <button type="submit" class="submit-btn">Upload Course</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
