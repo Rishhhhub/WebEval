@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/iconWEB.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenLearn Hub</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.4em;
+      color: #007bff;
+      letter-spacing: 0.5px;
+    }
+
+    nav .nav-links a {
+      margin: 0 18px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav .nav-links a:hover {
+      color: #007bff;
+    }
+
+    nav .login-btn {
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      color: #fff;
+      padding: 9px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.15);
+      transform: rotate(-4deg);
+    }
+
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      color: #e8f8ff;
+      margin-bottom: 35px;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      width: 320px;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .search-bar button {
+      background-color: #fff;
+      color: #007bff;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .resources-section {
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .resources-section h2 {
+      margin-bottom: 50px;
+      color: #007bff;
+      font-size: 2em;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 35px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .resource-card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      text-align: left;
+      border-top: 4px solid #007bff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
+    }
+
+    .resource-card h3 {
+      margin-top: 0;
+      color: #007bff;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .resource-card p {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .how-it-works {
+      background-color: #f9fafc;
+      padding: 70px 20px;
+      max-width: 850px;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    .how-it-works h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #007bff;
+      font-size: 2em;
+    }
+
+    .step {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .step h3 {
+      color: #00b4d8;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+
+  </style>
+  <style>
+  /* Make cards feel interactable */
+  .book-card, .course-item, .note-item {
+    transition: all 0.3s ease; /* Smooth animation */
+    border: 1px solid #eee; /* Subtle border */
+  }
+
+  .book-card:hover, .course-item:hover, .note-item:hover {
+    transform: translateY(-5px); /* Move up slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Soft shadow drop */
+    border-color: #007bff; /* Highlight border color */
+  }
+
+  /* Add a subtle focus glow to all input fields */
+  input[type="text"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+  }
+</style>
+</head>
+<body>
+
+ <nav>
+    <div class="logo">OpenLearn Hub</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/books">Free Books</a>
+      <a href="/courses">Online Courses</a>
+      <a href="/notes">Student Notes</a>
+      <a href="/subjects">Subjects</a>
+    </div>
+    <a href="#" class="login-btn">Login / Sign Up</a>
+  </nav>
+
+  <script>
+  // Get current path (e.g., "/books")
+  const currentPath = window.location.pathname;
+  
+  // Select all nav links
+  const navLinks = document.querySelectorAll('nav a');
+  
+  navLinks.forEach(link => {
+    // Check if the link's href matches the current path
+    if (link.getAttribute('href') === currentPath) {
+      link.style.color = '#007bff'; // Active color (Blue)
+      link.style.fontWeight = 'bold';
+      link.style.borderBottom = '2px solid #007bff';
+    }
+  });
+</script>
+<div id="toast-box" style="visibility: hidden; min-width: 250px; margin-left: -125px; background-color: #333; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; font-size: 17px; border-radius: 50px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+  Notification
+</div>
+
+<script>
+  // Check URL for messages
+  const urlParams = new URLSearchParams(window.location.search);
+  const successMsg = urlParams.get('success');
+  const errorMsg = urlParams.get('error');
+  const toast = document.getElementById("toast-box");
+
+  if (successMsg || errorMsg) {
+    // Set message and color
+    toast.innerText = successMsg || errorMsg;
+    toast.style.backgroundColor = successMsg ? "#2ecc71" : "#e74c3c"; // Green for success, Red for error
+    
+    // Show the toast
+    toast.style.visibility = "visible";
+    toast.style.animation = "fadein 0.5s, fadeout 0.5s 2.5s";
+
+    // Hide after 3 seconds and clean URL
+    setTimeout(() => {
+      toast.style.visibility = "hidden";
+      // Remove query param from URL without refreshing so it doesn't show again
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }, 3000);
+  }
+
+  /* Add simple animation styles via JS */
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+    @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+  `;
+  document.head.appendChild(style);
+</script>
