@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "category": "Mathematics",
+    "title": "Calculus - Lecture Notes",
+    "meta": "Uploaded by Sarah Miller on July 15, 2024",
+    "image": "largepreview.png"
+  },
+  {
+    "id": 2,
+    "category": "Physics",
+    "title": "Fluid Mechanics - Physics NCERT Short Notes",
+    "meta": "Uploaded by David Chen on July 20, 2024",
+    "image": "Fluid Mechanics - Physics NCERT Book Short Notes 📚-images-1.jpg"
+  },
+  {
+    "id": 3,
+    "category": "Computer Science",
+    "title": "C Programming Notes",
+    "meta": "Uploaded by Rishabh Kumar on July 25, 2024",
+    "image": "33-768x1089.png"
+  }
+]

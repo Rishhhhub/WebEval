@@ -1,0 +1,43 @@
+[
+  {"id": 1,
+    "title": "Introduction to Data Science",
+    "type": "Free Course",
+    "description": "Learn the basics of data science, including visualization and ML.",
+    "image": "maxresdefault.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Web Development Fundamentals",
+    "type": "Free Course",
+    "description": "Learn HTML, CSS, and JavaScript to build modern websites.",
+    "image": "https://cdn-media-0.freecodecamp.org/size/w2000/2022/08/frontend.png"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Essentials",
+    "type": "Free Course",
+    "description": "Discover the key concepts of digital marketing, including SEO, social media marketing, and content strategy.",
+    "image": "https://www.nielit.gov.in/sites/default/files/Aurangabad/WhatsApp%20Image%202020-11-12%20at%2012.01.16%20PM.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Project Management Basics",
+    "type": "Free Course",
+    "description": "Learn the fundamentals of project management, including planning, execution, and monitoring of projects.",
+    "image": "https://prothoughts.co.in/wp-content/uploads/2024/05/Project-Management-Training-Courses-1.webp"
+  },
+  {
+    "id": 5,
+    "title": "Graphic Design Principles",
+    "type": "Free Course",
+    "description": "Explore the core principles of graphic design, including typography, color theory, and layout design.",
+    "image": "https://i.ytimg.com/vi/GQS7wPujL2k/maxresdefault.jpg"
+  },
+  {
+    "id": 6,
+    "title": "anything",
+    "type": "Free Course",
+    "description": "Explore the core principles of graphic design, including typography, color theory, and layout design.",
+    "image": "Original.jpg"
+  }
+]
